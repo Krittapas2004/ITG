@@ -7,7 +7,7 @@ import { db } from "../../firebase";
 import "../../css/Div.css"
 import "../../css/Input.css"
 import SearchList from "../../components/SearchList/SearchList.jsx";
-import { inputNoTH } from "../../utility/InputUtil.js";
+import { inputFormat, InputMode } from "../../utility/InputUtil.js";
 
 function AllPart() {
     const [parts, setParts] = useState([]);
@@ -28,7 +28,7 @@ function AllPart() {
     }, []);
 
     const search = (e) => {
-        setSearchQuery(inputNoTH(e.target.value));
+        setSearchQuery(inputFormat(e.target.value, InputMode.NO_THAI));
     }
 
     const filteredParts = parts.filter((part) => {

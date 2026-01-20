@@ -21,10 +21,6 @@ export default function MachineForm() {
     coolingTime: "",
   });
 
-  function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
-
   async function saveData(e) {
     e.preventDefault();
     await addDoc(collection(db, "all_parts", `all_parts${part_name}`, "machines" `machines${id}`), {
@@ -32,6 +28,10 @@ export default function MachineForm() {
       createdAt: new Date(),
     });
     alert("Data Saved!");
+  }
+
+  function handleChange(e) {
+    setForm({ ...form, [e.target.name]: e.target.value });
   }
 
   return (
@@ -45,18 +45,25 @@ export default function MachineForm() {
             className="reference-image"
           />
 
-          {/* Date */}
+          {/* Date Input */}
           <input
             type="text"
-            className="long-input"
+            className="form-input"
             id="date-input"
           />
 
-          {/* Machine Number */}
+          {/* Machine Number Input */}
           <input
             type="text"
-            className="long-input"
+            className="form-input"
             id="machine-number-input"
+          />
+
+          {/* Shift Input */}
+          <input
+            type="text"
+            className="form-input"
+            id="shift-input"
           />
 
         </div>
