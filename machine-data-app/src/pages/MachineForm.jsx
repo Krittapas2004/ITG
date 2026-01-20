@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useState } from "react";
-import Test from "./image0.jpeg";
+import Test from "../assets/test.jpeg";
 import "./MachineForm.css";
 
 export default function MachineForm() {
