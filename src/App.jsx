@@ -1,13 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-
-import MachineSelect from "./pages/MachineSelect";
-import MachineForm from "./pages/MachineForm";
-import MachineHistory from "./pages/MachineHistory";
-import RecordDetail from "./pages/RecordDetail";
-
-import HistoryHome from "./pages/HistoryHome";
-import MachineHistoryPage from "./pages/MachineHistoryPage";
+import MachineForm from "./pages/MachineForm/MachineForm";
+import RecordDetail from "./pages/RecordDetail/RecordDetail";
+import HistoryHome from "./pages/HistoryHome/HistoryHome";
+import MachineSelect from "./pages/MachineSelect/MachineSelect";
+import AllPart from "./pages/AllPart/Allpart"
 
 export default function App() {
   return (
@@ -15,19 +12,15 @@ export default function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<MachineSelect />} />
+        <Route path="/" element={< AllPart/>} />
+
+        
+        {/*  
         <Route path="/machine/:id" element={<MachineForm />} />
-
-        {/* OLD: machine-specific history */}
-        <Route path="/machine/:id/history" element={<MachineHistory />} />
-
-        {/* NEW: GLOBAL HISTORY SYSTEM */}
         <Route path="/history" element={<HistoryHome />} />
-        <Route path="/history/machine/:id" element={<MachineHistoryPage />} />
         <Route path="/history/machine/:id/product/:recordId" element={<RecordDetail />} />
-
-        {/* OLD RECORD DETAIL STILL WORKS */}
         <Route path="/machine/:id/record/:recordId" element={<RecordDetail />} />
+      */}
       </Routes>
     </>
   );
