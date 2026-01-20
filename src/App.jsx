@@ -16,13 +16,13 @@ export default function App() {
       <Routes>
         <Route path="/" element={< AllPart/>} />
         <Route path="/machine-select/:partName" element={< MachineSelect/>} />
-        
+        <Route path="/machine/:partName/:machineId" element={<MachineForm />} />
+
         {/*  
-        <Route path="/machine/:id" element={<MachineForm />} />
         <Route path="/history" element={<HistoryHome />} />
         <Route path="/history/machine/:id/product/:recordId" element={<RecordDetail />} />
         <Route path="/machine/:id/record/:recordId" element={<RecordDetail />} />
-      */}
+          */}
       </Routes>
     </>
   );

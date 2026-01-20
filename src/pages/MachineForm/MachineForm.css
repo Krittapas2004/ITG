@@ -93,3 +93,22 @@
     width: 50px;
     height: 20px;
   }
+
+  @media screen and (max-width: 1180px) and (min-width: 820px) {
+
+    .machine-date {
+      top: 110px;       /* adjust vertically */
+      left: 100px;      /* shift left */
+      width: 140px;     /* slightly smaller */
+      height: 26px;
+      font-size: 13px;
+    }
+  
+    .machine-number {
+      top: 110px;
+      left: 280px;      /* bring closer */
+      width: 140px;
+      height: 26px;
+      font-size: 13px;
+    }
+  }

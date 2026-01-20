@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import './SearchList.css'; // อย่าลืม import ไฟล์ CSS
 
 export default function SearchList({ partName }) {
+
+    const safePartName = encodeURIComponent(partName);
+
     return (
         <Link
             to={`/machine-select/${partName || 'unknown'}`}
