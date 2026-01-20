@@ -7,11 +7,6 @@ export default function Navbar() {
             <div className="nav-left">
                 <Link to="/" className="nav-logo">ITG Machine System</Link>
             </div>
-
-            <div className="nav-right">
-                <Link to="/" className="nav-link">Home</Link>
-                <Link to="/history" className="nav-link">History</Link>
-            </div>
         </nav>
     );
 }
