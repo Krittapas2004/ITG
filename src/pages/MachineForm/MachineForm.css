@@ -1,114 +1,129 @@
 /* ====== PAGE ====== */
 .machine-screen {
-    background: #e3e3e3;
-    padding: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  /* ====== IMAGE ====== */
-  .reference-image {
-    width: 100%;
-    max-width: 900px;
-    display: block;
-    margin-bottom: 20px;
-    border: 3px solid #777;
-  }
-  
-  /* ====== FORM ====== */
-  .machine-form {
-    max-width: 900px;
-  }
-  
-  /* ====== PANELS ====== */
-  .panel {
-    background: #f2f2f2;
-    border: 2px solid #888;
-    margin-bottom: 20px;
-    padding: 15px;
-  }
-  
-  .panel-title {
-    background: #d9d9d9;
-    border: 1px solid #888;
-    padding: 6px 10px;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 12px;
-  }
-  
-  /* ====== GRIDS ====== */
-  .grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-  
-  .grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-  
-  /* ====== FIELDS ====== */
-  .field {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .field label {
-    font-size: 12px;
-    margin-bottom: 4px;
-    color: #222;
-  }
-  
-  .field input {
-    background: #ffffff;
-    border: 2px solid #555;
-    padding: 6px;
-    font-size: 14px;
-    text-align: center;
-  }
-  
-  /* EMPTY PLACEHOLDER */
-  .field.empty {
-    visibility: hidden;
-  }
-  
-  /* ====== BUTTON ====== */
-  .save-btn {
-    margin-top: 20px;
-    padding: 12px 25px;
-    font-size: 16px;
-    background: #2d66d3;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .save-btn:hover {
-    background: #1f4fb0;
-  }
-  
-  #short {
-    width: 50px;
-    height: 20px;
-  }
+  width: 100%;
+  overflow-x: auto;
+}
 
-  @media screen and (max-width: 1180px) and (min-width: 820px) {
+/* ====== IMAGE ====== */
+.reference-image {
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  margin-bottom: 20px;
+  border: 3px solid #777;
+}
 
-    .machine-date {
-      top: 110px;       /* adjust vertically */
-      left: 100px;      /* shift left */
-      width: 140px;     /* slightly smaller */
-      height: 26px;
-      font-size: 13px;
-    }
-  
-    .machine-number {
-      top: 110px;
-      left: 280px;      /* bring closer */
-      width: 140px;
-      height: 26px;
-      font-size: 13px;
-    }
+/* ====== FORM ====== */
+.machine-form {
+  max-width: 900px;
+}
+
+/* ====== PANELS ====== */
+.panel {
+  background: #f2f2f2;
+  border: 2px solid #888;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+.panel-title {
+  background: #d9d9d9;
+  border: 1px solid #888;
+  padding: 6px 10px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* ====== GRIDS ====== */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* ====== FIELDS ====== */
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field label {
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #222;
+}
+
+.field input {
+  background: #ffffff;
+  border: 2px solid #555;
+  padding: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* EMPTY PLACEHOLDER */
+.field.empty {
+  visibility: hidden;
+}
+
+/* ====== BUTTON ====== */
+.save-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 16px;
+  background: #2d66d3;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: #1f4fb0;
+}
+
+#short {
+  width: 50px;
+  height: 20px;
+}
+
+/* iPad Air Portrait & Landscape */
+@media screen and (max-width: 1180px) {
+  .form-canvas {
+    transform: scale(0.8);
   }
+}
+
+/* Small tablets / phones */
+@media screen and (max-width: 900px) {
+  .form-canvas {
+    transform: scale(0.65);
+  }
+}
+
+/* Outer wrapper centers and scales */
+.form-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Original desktop canvas size */
+.form-canvas {
+  position: relative;
+  width: 1000px;
+  /* MATCH your image width */
+  transform-origin: top left;
+}
+
+/* Image must follow canvas width */
+.reference-image {
+  width: 100%;
+  display: block;
+}
