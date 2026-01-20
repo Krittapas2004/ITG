@@ -13,8 +13,8 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={< AllPart/>} />
-
         
+
         {/*  
         <Route path="/machine/:id" element={<MachineForm />} />
         <Route path="/history" element={<HistoryHome />} />
