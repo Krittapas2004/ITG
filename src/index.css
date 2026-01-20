@@ -81,7 +81,6 @@ body {
   /* History & Navigation links */
   a {
     display: inline-block;
-    margin-top: 20px;
     font-size: 16px;
     color: #007bff;
     text-decoration: none;

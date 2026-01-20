@@ -5,6 +5,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import "../../css/Div.css"
+import "../../css/Input.css"
 import SearchList from "../../components/SearchList/SearchList.jsx";
 import { inputNoTH } from "../../utility/InputUtil.js";
 
