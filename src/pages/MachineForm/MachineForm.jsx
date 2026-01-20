@@ -48,36 +48,15 @@ export default function MachineForm() {
           {/* Date */}
           <input
             type="text"
-            className="machine-date"
-            style={{
-              position: "absolute",
-              top: "111px",
-              left: "146px",
-              width: "171px",
-              height: "27px",
-              border: "2px solid #666",
-              background: "#fff",
-              textAlign: "center",
-              fontSize: "14px",
-              fontFamily: "Arial, Helvetica, sans-serif",
-            }}
+            className="long-input"
+            id="date-input"
           />
 
           {/* Machine Number */}
           <input
             type="text"
-            style={{
-              position: "absolute",
-              top: "98px",
-              left: "350px",
-              width: "155px",
-              height: "27px",
-              border: "2px solid #666",
-              background: "#fff",
-              textAlign: "center",
-              fontSize: "14px",
-              fontFamily: "Arial, Helvetica, sans-serif",
-            }}
+            className="long-input"
+            id="machine-number-input"
           />
 
         </div>

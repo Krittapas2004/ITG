@@ -17,12 +17,14 @@
 /* MUST match original image width */
 .form-canvas {
   position: relative;
-  width: 1000px;
+  width: auto;
+  max-width: 1000px;
 }
 
 /* ===== IMAGE ===== */
 .reference-image {
-  width: 100%;
+  width: auto;
+  max-width: 1000px;
   display: block;
   border: 3px solid #777;
 }
@@ -46,5 +48,40 @@
   .form-canvas {
     zoom: 0.65;
   }
+}
+
+.long-input {
+  position: absolute;
+  /* border: 2px solid #666; */
+  background: transparent;
+  text-align: center;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.long-input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.short-input {
+
+}
+
+#date-input {
+  width: 17%;
+  height: 2%;
+  top: 7.9%;
+  left: 14.7%;
+}
+
+#machine-number-input {
+  width: 22.6%;
+  height: 2%;
+  top: 7.9%;
+  left: 37.7%;
 }
 
