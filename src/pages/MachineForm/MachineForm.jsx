@@ -42,7 +42,6 @@ export default function MachineForm() {
         <div className="form-canvas">
           <img
             src={Test}
-            alt="Reference"
             className="reference-image"
           />
 
@@ -52,9 +51,9 @@ export default function MachineForm() {
             className="machine-date"
             style={{
               position: "absolute",
-              top: "98px",
-              left: "131px",
-              width: "155px",
+              top: "111px",
+              left: "146px",
+              width: "171px",
               height: "27px",
               border: "2px solid #666",
               background: "#fff",
