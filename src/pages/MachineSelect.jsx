@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Home.css";
+import "./MachineSelect.css";
 
 export default function MachineSelect() {
     const machines = Array.from({ length: 21 }, (_, i) => i + 1);
