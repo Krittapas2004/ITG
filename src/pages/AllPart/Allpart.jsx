@@ -12,7 +12,6 @@ import { inputNoTH } from "../../utility/InputUtil.js";
 
 function AllPart() {
     const [parts, setParts] = useState([]);
-    const [newPart, setNewPart] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
 
     // 🔹 READ all part names
@@ -29,21 +28,6 @@ function AllPart() {
         return () => unsub();
     }, []);
 
-
-
-    // 🔹 CREATE new part name
-    const handleAddPart = async () => {
-        if (!newPart.trim()) return;
-
-        const docRef = doc(db, "all_part", newPart);
-
-        await setDoc(docRef, {
-            createdAt: new Date(),
-        });
-
-        setNewPart("");
-    };
-
     const search = (e) => {
         setSearchQuery(inputNoTH(e.target.value));
     }
@@ -56,16 +40,6 @@ function AllPart() {
 
     return (
         <div id="out-container">
-
-            <h2>All Parts</h2>
-
-            <input
-                value={newPart}
-                onChange={(e) => setNewPart(e.target.value)}
-                placeholder="New part name"
-            />
-            <button onClick={handleAddPart}>Add Part</button>
-
             {/* Search Bar */}
 
             <input
@@ -80,6 +54,9 @@ function AllPart() {
             <div className="parts-list">
                 {filteredParts.map((part) => (
                     <div key={part.id} className="part-item">
+
+                        
+
                         <p>{part.id}</p>
                     </div>
                 ))}

@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import MachineForm from "./pages/MachineForm/MachineForm";
 import RecordDetail from "./pages/RecordDetail/RecordDetail";
 import HistoryHome from "./pages/HistoryHome/HistoryHome";
