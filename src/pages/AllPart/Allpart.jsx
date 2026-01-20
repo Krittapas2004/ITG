@@ -46,6 +46,7 @@ function AllPart() {
                 type="search"
                 value={searchQuery}
                 onChange={search}
+                placeholder="Search Part Name"
             />
 
             {/* Search Query List */}
