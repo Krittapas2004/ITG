@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { db } from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
+import { inputFormat, InputMode } from "../../utility/InputUtil.js";
 import { useState } from "react";
 import Test from "../../assets/worksheet.jpg";
 import "./MachineForm.css";
@@ -9,6 +10,10 @@ export default function MachineForm() {
   const { id, part_name } = useParams();
 
   const [form, setForm] = useState({
+    date: "",
+    machine_number: 0,
+    id: "",
+    part_name: "",
     hold1Time: "",
     hold2Time: "",
     hold1Press: "",
@@ -23,7 +28,7 @@ export default function MachineForm() {
 
   async function saveData(e) {
     e.preventDefault();
-    await addDoc(collection(db, "all_parts", `all_parts${part_name}`, "machines" `machines${id}`), {
+    await addDoc(collection(db, "all_parts", `all_parts${form.part_name}`, "machines" `machines${form.id}`), {
       ...form,
       createdAt: new Date(),
     });
@@ -32,6 +37,15 @@ export default function MachineForm() {
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  function handleInputFormat(e, InputMode) {
+    const { id, value } = e.target;
+    const formatted = inputFormat(value, mode);
+    setForm(prev => ({
+      ...prev,
+      [id]: formatted
+    }));
   }
 
   return (
@@ -50,6 +64,8 @@ export default function MachineForm() {
             type="text"
             className="form-input"
             id="date-input"
+            value={form.date}
+            onChange={(e) => handleChange(e, InputMode.ONLY_NUMBER)}
           />
 
           {/* Machine Number Input */}
