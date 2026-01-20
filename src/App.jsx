@@ -9,12 +9,14 @@ import AllPart from "./pages/AllPart/Allpart"
 export default function App() {
   return (
     <>
+      {/* Navbar */}
       <Navbar />
 
+      {/* Route */}
       <Routes>
         <Route path="/" element={< AllPart/>} />
+        <Route path="/machine-select/:partName" element={< MachineSelect/>} />
         
-
         {/*  
         <Route path="/machine/:id" element={<MachineForm />} />
         <Route path="/history" element={<HistoryHome />} />

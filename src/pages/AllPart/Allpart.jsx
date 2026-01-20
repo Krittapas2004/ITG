@@ -8,6 +8,7 @@ import {
 import { db } from "../../firebase";
 import "../../css/Input.css"
 import "../../css/Div.css"
+import SearchList from "../../components/SearchList/SearchList.jsx";
 import { inputNoTH } from "../../utility/InputUtil.js";
 
 function AllPart() {
@@ -39,11 +40,12 @@ function AllPart() {
     });
 
     return (
-        <div id="out-container">
+        <div className="out-container">
+
             {/* Search Bar */}
 
             <input
-                id="parts-name-input"
+                className="parts-name-input"
                 type="search"
                 value={searchQuery}
                 onChange={search}
@@ -54,15 +56,16 @@ function AllPart() {
             <div className="parts-list">
                 {filteredParts.map((part) => (
                     <div key={part.id} className="part-item">
-
-                        
-
-                        <p>{part.id}</p>
+                        <SearchList 
+                            partName={part.id} 
+                        />
                     </div>
                 ))}
 
                 {filteredParts.length === 0 && searchQuery !== "" && (
-                    <p>No results found for "{searchQuery}"</p>
+                    <SearchList 
+                        partName={`No results found for "${searchQuery}"`}
+                    />
                 )}
             </div>
         </div>
