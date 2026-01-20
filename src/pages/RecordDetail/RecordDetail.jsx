@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import jsPDF from "jspdf";

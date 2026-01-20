@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./History.css";
+import "./HistoryHome.css";
 
 export default function HistoryHome() {
     const machines = Array.from({ length: 21 }, (_, i) => i + 1);

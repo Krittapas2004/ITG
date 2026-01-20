@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useState } from "react";
 import Test from "../assets/test.jpeg";
 import "./MachineForm.css";
 
 export default function MachineForm() {
-    const { id } = useParams();
+    const { id, part_name } = useParams();
 
     const [form, setForm] = useState({
         hold1Time: "",
@@ -27,7 +27,7 @@ export default function MachineForm() {
 
     async function saveData(e) {
         e.preventDefault();
-        await addDoc(collection(db, "machines", `machine${id}`, "records"), {
+        await addDoc(collection(db, "all_parts", `all_parts${part_name}`, "machines" `machines${id}`), {
             ...form,
             createdAt: new Date(),
         });
