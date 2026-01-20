@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import {
     collection,
-    doc,
-    setDoc,
     onSnapshot
 } from "firebase/firestore";
 import { db } from "../../firebase";
-import "../../css/Input.css"
 import "../../css/Div.css"
 import SearchList from "../../components/SearchList/SearchList.jsx";
 import { inputNoTH } from "../../utility/InputUtil.js";

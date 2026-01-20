@@ -1,7 +1,6 @@
-/* เปลี่ยนจาก ID เป็น Class เพื่อรองรับการมีหลาย Card (จาก .map) */
 .search-card {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
     background-color: white;
     width: 100%; 
     display: block;
