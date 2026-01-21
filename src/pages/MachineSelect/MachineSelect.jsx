@@ -6,6 +6,8 @@ export default function MachineSelect() {
     const decodedPartName = decodeURIComponent(partName);
   
     const machines = Array.from({ length: 21 }, (_, i) => i + 1);
+
+    
   
     return (
       <div className="home-container">

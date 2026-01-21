@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { db } from "../../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 import { inputFormat, InputMode } from "../../utility/InputUtil.js";
 import { useState } from "react";
 import Test from "../../assets/worksheet.jpg";
@@ -13,28 +13,36 @@ export default function MachineForm() {
     shift: "",
     part_name: "",
     part_number: "",
-
-    id: "",
-    hold1Time: "",
-    hold2Time: "",
-    hold1Press: "",
-    hold2Press: "",
-    fillPos1: "",
-    fillPos2: "",
-    fillVel1: "",
-    fillVel2: "",
-    fillPress: "",
-    coolingTime: "",
   });
 
   async function saveData(e) {
     e.preventDefault();
-    await addDoc(collection(db, "all_parts", `all_parts${form.part_name}`, "machines" `machines${form.id}`), {
-      ...form,
-      createdAt: new Date(),
-    });
-    alert("Data Saved!");
-  }
+    const now = new Date();
+    const timestampId = now.toLocaleString('sv-SE').replace(' ', '_');
+
+    try {
+        const docRef = doc(
+          db, 
+          "all_part", 
+          form.part_name, 
+          "machines", 
+          `machine_${form.machine_number}`,
+          "history",    
+          timestampId  
+        );
+
+        await setDoc(docRef, {
+          ...form,
+          saveTime: timestampId,
+          createdAt: now, 
+        });
+
+        alert(`Saved successfully as: ${timestampId}`);
+    } catch (error) {
+        console.error("Save error:", error);
+        alert("Error saving data. Check console.");
+    }
+}
 
   function handleChange(e, mode) {
     const { name, value } = e.target;
@@ -48,6 +56,9 @@ export default function MachineForm() {
   return (
     <div className="machine-screen">
       <h1>Machine – Full Setting Form</h1>
+      <div className="display-grid">
+      <button onClick={saveData}></button>
+      </div>
 
       <div className="form-wrapper">
         <div className="form-canvas">
@@ -80,7 +91,6 @@ export default function MachineForm() {
           {/* Shift Input */}
           <input
             type="text"
-            inputMode="numeric"
             className="form-input"
             id="shift-input"
             name="shift"
