@@ -1,12 +1,15 @@
 import { useParams } from "react-router-dom";
 import { db } from "../../firebase";
-import { collection, addDoc, doc, setDoc } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc, getDocs, query, orderBy, limit } from "firebase/firestore";
 import { inputFormat, InputMode } from "../../utility/InputUtil.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Test from "../../assets/worksheet.jpg";
 import "./MachineForm.css";
 
 export default function MachineForm() {
+  const { partName, machineId } = useParams();
+  const decodedPartName = partName ? decodeURIComponent(partName) : "";
+
   const [form, setForm] = useState({
     date: "",
     machine_number: "",
@@ -14,6 +17,57 @@ export default function MachineForm() {
     part_name: "",
     part_number: "",
   });
+
+  useEffect(() => {
+    if (decodedPartName && machineId) {
+      // Pre-fill basic info from URL
+      setForm(prev => ({
+        ...prev,
+        part_name: decodedPartName,
+        machine_number: machineId
+      }));
+
+      // Fetch latest history
+      const fetchLatestHistory = async () => {
+        try {
+          const historyRef = collection(
+            db,
+            "all_part",
+            decodedPartName,
+            "machines",
+            `machine_${machineId}`,
+            "history"
+          );
+
+          const q = query(historyRef, orderBy("createdAt", "desc"), limit(1));
+          const querySnapshot = await getDocs(q);
+
+          if (!querySnapshot.empty) {
+            const latestDoc = querySnapshot.docs[0].data();
+
+            // Format date for input type="date" (YYYY-MM-DD)
+            let formattedDate = "";
+            if (latestDoc.date) {
+              formattedDate = latestDoc.date;
+            }
+
+            setForm(prev => ({
+              ...prev,
+              ...latestDoc,
+              date: formattedDate,
+              // Ensure part_name and machine_number stay consistent with URL even if DB data is weird
+              part_name: decodedPartName,
+              machine_number: machineId
+            }));
+          }
+        } catch (error) {
+          console.error("Error fetching history:", error);
+        }
+      };
+
+      fetchLatestHistory();
+    }
+  }, [decodedPartName, machineId]);
 
   async function saveData(e) {
     e.preventDefault();
