@@ -36,6 +36,18 @@ export default function MachineForm() {
         timestampId
       );
 
+      const machineRef = doc(
+        db,
+        "all_part",
+        form.part_name,
+        "machines",
+        `machine_${form.machine_number}`
+      );
+
+      await setDoc(machineRef, {
+        updatedAt: now,
+      }, { merge: true });
+
       await setDoc(docRef, {
         ...form,
         saveTime: timestampId,
