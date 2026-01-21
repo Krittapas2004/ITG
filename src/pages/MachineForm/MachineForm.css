@@ -58,16 +58,16 @@
   font-size: 14px;
   height: 2%;
   outline: none;
-
+  border: none;
   box-shadow: none;
 }
 
-/*.form-input:focus {
+.form-input:focus {
   outline: none;
   border: none;
   box-shadow: none;
 }
-*/
+
 
 #date-input {
   width: 17%;

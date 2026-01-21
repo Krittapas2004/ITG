@@ -7,8 +7,6 @@ import Test from "../../assets/worksheet.jpg";
 import "./MachineForm.css";
 
 export default function MachineForm() {
-  const { id, part_name } = useParams();
-
   const [form, setForm] = useState({
     date: "",
     machine_number: "",
@@ -35,16 +33,12 @@ export default function MachineForm() {
     alert("Data Saved!");
   }
 
-  function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
-
-  function handleInputFormat(e, InputMode) {
-    const { id, value } = e.target;
-    const formatted = inputFormat(value, mode);
+  function handleChange(e, mode) {
+    const { name, value } = e.target;
+    const formatted = mode ? inputFormat(value, mode) : value;
     setForm(prev => ({
       ...prev,
-      [id]: formatted
+      [name]: formatted
     }));
   }
 
@@ -61,19 +55,23 @@ export default function MachineForm() {
 
           {/* Date Input */}
           <input
-            type="text"
+            type="date"
             className="form-input"
             id="date-input"
+            name="date"
             value={form.date}
-            onChange={(e) => handleChange(e, InputMode.ONLY_NUMBER)}
+            onChange={handleChange}
           />
 
           {/* Machine Number Input */}
           <input
             type="text"
+            inputMode="numeric"
             className="form-input"
             id="machine-number-input"
+            name="machine_number"
             value={form.machine_number}
+            onChange={(e) => handleChange(e, InputMode.ONLY_NUMBER)}
           />
 
           {/* Shift Input */}
@@ -82,9 +80,6 @@ export default function MachineForm() {
             className="form-input"
             id="shift-input"
           />
-
-          
-
         </div>
       </div>
     </div>
