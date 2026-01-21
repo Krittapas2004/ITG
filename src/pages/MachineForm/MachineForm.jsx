@@ -12,6 +12,7 @@ export default function MachineForm() {
     machine_number: "",
     shift: "",
     part_name: "",
+    part_number: "",
 
     id: "",
     hold1Time: "",
@@ -84,7 +85,7 @@ export default function MachineForm() {
             id="shift-input"
             name="shift"
             value={form.shift}
-            onChange={(e) => handleChange(e, InputMode.ONLY_NUMBER)}
+            onChange={(e) => handleChange(e, InputMode.NO_THAI)}
           />
 
           {/* Part Name Input */}
@@ -94,6 +95,16 @@ export default function MachineForm() {
             id="part-name-input"
             name="part_name"
             value={form.part_name}
+            onChange={(e) => handleChange(e, InputMode.NO_THAI)}
+          />
+
+          {/* Part Number Input */}
+          <input
+            type="text"
+            className="form-input"
+            id="part-number-input"
+            name="part_number"
+            value={form.part_number}
             onChange={(e) => handleChange(e, InputMode.NO_THAI)}
           />
         </div>
