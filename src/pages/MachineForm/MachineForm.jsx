@@ -21,28 +21,33 @@ export default function MachineForm() {
     const timestampId = now.toLocaleString('sv-SE').replace(' ', '_');
 
     try {
-        const docRef = doc(
-          db, 
-          "all_part", 
-          form.part_name, 
-          "machines", 
-          `machine_${form.machine_number}`,
-          "history",    
-          timestampId  
-        );
+      const partRef = doc(db, "all_part", form.part_name);
+      await setDoc(partRef, {
+        updatedAt: now,
+      }, { merge: true });
 
-        await setDoc(docRef, {
-          ...form,
-          saveTime: timestampId,
-          createdAt: now, 
-        });
+      const docRef = doc(
+        db,
+        "all_part",
+        form.part_name,
+        "machines",
+        `machine_${form.machine_number}`,
+        "history",
+        timestampId
+      );
 
-        alert(`Saved successfully as: ${timestampId}`);
+      await setDoc(docRef, {
+        ...form,
+        saveTime: timestampId,
+        createdAt: now,
+      });
+
+      alert(`Saved successfully as: ${timestampId}`);
     } catch (error) {
-        console.error("Save error:", error);
-        alert("Error saving data. Check console.");
+      console.error("Save error:", error);
+      alert("Error saving data. Check console.");
     }
-}
+  }
 
   function handleChange(e, mode) {
     const { name, value } = e.target;
@@ -57,7 +62,7 @@ export default function MachineForm() {
     <div className="machine-screen">
       <h1>Machine – Full Setting Form</h1>
       <div className="display-grid">
-      <button onClick={saveData}></button>
+        <button onClick={saveData}></button>
       </div>
 
       <div className="form-wrapper">
