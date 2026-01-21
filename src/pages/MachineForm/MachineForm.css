@@ -52,21 +52,22 @@
 
 .form-input {
   position: absolute;
-  /* border: 2px solid #666; */
+  border: 2px solid #666; 
   background: transparent;
   text-align: center;
   font-size: 14px;
   height: 2%;
   outline: none;
-  border: none;
+
   box-shadow: none;
 }
 
-.form-input:focus {
+/*.form-input:focus {
   outline: none;
   border: none;
   box-shadow: none;
 }
+*/
 
 #date-input {
   width: 17%;
@@ -78,6 +79,12 @@
   width: 22.6%;
   top: 8.0%;
   left: 37.7%;
+}
+
+#shift-input{
+  width: 12%;
+  top: 8.1%;
+  left: 66.3%;
 }
 
 

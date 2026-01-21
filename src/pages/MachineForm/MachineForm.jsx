@@ -11,7 +11,7 @@ export default function MachineForm() {
 
   const [form, setForm] = useState({
     date: "",
-    machine_number: 0,
+    machine_number: "",
     id: "",
     part_name: "",
     hold1Time: "",
@@ -73,6 +73,7 @@ export default function MachineForm() {
             type="text"
             className="form-input"
             id="machine-number-input"
+            value={form.machine_number}
           />
 
           {/* Shift Input */}
@@ -81,6 +82,8 @@ export default function MachineForm() {
             className="form-input"
             id="shift-input"
           />
+
+          
 
         </div>
       </div>
