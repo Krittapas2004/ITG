@@ -75,9 +75,32 @@
   text-align: center;
 }
 
+.save-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
 .form-input {
   position: absolute;
-  background: transparent;
+  background: red ;
   text-align: center;
   font-size: 14px;
   height: 2%;
@@ -94,31 +117,31 @@
 
 
 #date-input {
-  width: 17%;
-  top: 8.0%;
-  left: 14.7%;
+  width: 17.8%;
+  top: 12%;
+  left: 12.3%;
 }
 
 #machine-number-input {
-  width: 22.7%;
-  top: 8.0%;
-  left: 37.7%;
+  width: 19%;
+  top: 12%;
+  left: 36%;
 }
 
 #shift-input {
-  width: 11.7%;
-  top: 8.1%;
-  left: 66.4%;
+  width: 6%;
+  top: 12%;
+  left: 60.8%;
 }
 
 #part-name-input {
-  width: 13.1%;
-  top: 8.1%;
-  left: 83.9%;
+  width: 24.4%;
+  top: 12%;
+  left: 72.6%;
 }
 
 #part-number-input {
   width: 17%;
-  top: 10.0%;
+  top: 1%;
   left: 14.7%;
 }

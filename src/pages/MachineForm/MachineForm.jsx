@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
 import { collection, addDoc, doc, setDoc, getDocs, getDoc, query, orderBy, limit } from "firebase/firestore";
 import { inputFormat, InputMode } from "../../utility/InputUtil.js";
@@ -8,6 +8,7 @@ import "./MachineForm.css";
 
 export default function MachineForm() {
   const { partName, machineId, recordId } = useParams();
+  const navigate = useNavigate();
   const decodedPartName = partName ? decodeURIComponent(partName) : "";
 
   const [form, setForm] = useState({
@@ -115,6 +116,7 @@ export default function MachineForm() {
       });
 
       alert(`Saved successfully as: ${timestampId}`);
+      navigate(`/machine/${partName}/${machineId}`);
     } catch (error) {
       console.error("Save error:", error);
       alert("Error saving data. Check console.");
@@ -133,14 +135,11 @@ export default function MachineForm() {
   return (
     <div className="machine-screen">
       <h1 className="machine-title">Machine – Full Setting Form</h1>
-      <div className="display-grid">
-        {!recordId && <button onClick={saveData}></button>}
-      </div>
 
       <div className="form-wrapper">
         <div className="form-canvas">
 
-          
+
           <img
             src={Test}
             className="reference-image"
@@ -154,6 +153,7 @@ export default function MachineForm() {
             name="date"
             value={form.date}
             onChange={handleChange}
+            disabled={!!recordId}
           />
 
           {/* Machine Number Input */}
@@ -165,6 +165,7 @@ export default function MachineForm() {
             name="machine_number"
             value={form.machine_number}
             onChange={(e) => handleChange(e, InputMode.ONLY_NUMBER)}
+            disabled={!!recordId}
           />
 
           {/* Shift Input */}
@@ -175,6 +176,7 @@ export default function MachineForm() {
             name="shift"
             value={form.shift}
             onChange={(e) => handleChange(e, InputMode.NO_THAI)}
+            disabled={!!recordId}
           />
 
           {/* Part Name Input */}
@@ -185,6 +187,7 @@ export default function MachineForm() {
             name="part_name"
             value={form.part_name}
             onChange={(e) => handleChange(e, InputMode.NO_THAI)}
+            disabled={!!recordId}
           />
 
           {/* Part Number Input */}
@@ -195,7 +198,14 @@ export default function MachineForm() {
             name="part_number"
             value={form.part_number}
             onChange={(e) => handleChange(e, InputMode.NO_THAI)}
+            disabled={!!recordId}
           />
+
+          {!recordId && (
+            <button className="save-btn" onClick={saveData}>
+              Save Data
+            </button>
+          )}
         </div>
       </div>
     </div>
