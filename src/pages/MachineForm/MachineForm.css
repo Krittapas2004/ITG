@@ -52,7 +52,7 @@
 
 .form-input {
   position: absolute;
-  background: transparent;
+  background: red;
   text-align: center;
   font-size: 14px;
   height: 2%;
@@ -75,16 +75,23 @@
 }
 
 #machine-number-input {
-  width: 22.6%;
+  width: 22.7%;
   top: 8.0%;
   left: 37.7%;
 }
 
 #shift-input{
-  width: 12%;
+  width: 11.7%;
   top: 8.1%;
-  left: 66.3%;
+  left: 66.4%;
 }
+
+#part-name-input {
+  width: 13.1%;
+  top: 8.1%;
+  left: 83.9%;
+}
+
 
 
 
