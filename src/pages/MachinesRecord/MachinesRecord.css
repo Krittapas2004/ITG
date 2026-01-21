@@ -1,0 +1,101 @@
+.record-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 8px 16px;
+    background-color: #e9ecef;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #dee2e6;
+    transform: translateX(-3px);
+    color: #000;
+}
+
+.record-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.record-header h1 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.add-record-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.add-record-btn:hover {
+    background-color: #0056b3;
+}
+
+.record-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.record-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.record-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.record-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border: 1px solid #007bff;
+}
+
+.record-info h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.record-info p {
+    margin: 0;
+    color: #666;
+}
+
+.record-info .timestamp {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 0.5rem;
+}
+
+.no-records {
+    text-align: center;
+    color: #666;
+    margin-top: 3rem;
+}

@@ -1,8 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import MachineForm from "./pages/MachineForm/MachineForm";
-import RecordDetail from "./pages/RecordDetail/RecordDetail";
-import HistoryHome from "./pages/HistoryHome/HistoryHome";
+import MachinesRecord from "./pages/MachinesRecord/MachinesRecord";
 import MachineSelect from "./pages/MachineSelect/MachineSelect";
 import AllPart from "./pages/AllPart/Allpart"
 
@@ -14,9 +13,11 @@ export default function App() {
 
       {/* Route */}
       <Routes>
-        <Route path="/" element={< AllPart/>} />
-        <Route path="/machine-select/:partName" element={< MachineSelect/>} />
-        <Route path="/machine/:partName/:machineId" element={<MachineForm />} />
+        <Route path="/" element={< AllPart />} />
+        <Route path="/machine-select/:partName" element={< MachineSelect />} />
+        <Route path="/machine/:partName/:machineId" element={<MachinesRecord />} />
+        <Route path="/machine/:partName/:machineId/form" element={<MachineForm />} />
+        <Route path="/machine/:partName/:machineId/record/:recordId" element={<MachineForm />} />
 
         {/*  
         <Route path="/history" element={<HistoryHome />} />

@@ -4,6 +4,13 @@ import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 import "./MachineSelect.css";
 
+/* Only adding CSS since I cannot edit the CSS file directly with this tool effectively if it's not open or I don't want to read it all. 
+   Wait, I should use write_to_file or replace_file_content on the CSS file.
+   The user didn't explicitly ask for CSS but it's implied for it to look good.
+   I'll assume a global or inline style might be better if I don't want to touch too many files, but best practice is CSS file.
+   Let's check MachineSelect.css content first or just append to it.
+*/
+
 export default function MachineSelect() {
   const { partName } = useParams();
   const decodedPartName = decodeURIComponent(partName);

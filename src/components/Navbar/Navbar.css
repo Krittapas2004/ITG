@@ -7,9 +7,12 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
-    box-sizing: border-box; /* IMPORTANT FIX */
-    overflow-x: hidden;     /* Prevent sideways scroll */
-    white-space: nowrap;    /* Keep items on one line */
+    box-sizing: border-box;
+    /* IMPORTANT FIX */
+    overflow-x: hidden;
+    /* Prevent sideways scroll */
+    white-space: nowrap;
+    /* Keep items on one line */
 }
 
 /* LOGO */
@@ -19,4 +22,24 @@
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
+}
+
+.nav-back-btn {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin-right: 15px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    transition: background 0.2s;
+}
+
+.nav-back-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
 }

@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { db } from "../../firebase";
-import { collection, addDoc, doc, setDoc, getDocs, query, orderBy, limit } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc, getDocs, getDoc, query, orderBy, limit } from "firebase/firestore";
 import { inputFormat, InputMode } from "../../utility/InputUtil.js";
 import { useState, useEffect } from "react";
 import Test from "../../assets/worksheet.jpg";
 import "./MachineForm.css";
 
 export default function MachineForm() {
-  const { partName, machineId } = useParams();
+  const { partName, machineId, recordId } = useParams();
   const decodedPartName = partName ? decodeURIComponent(partName) : "";
 
   const [form, setForm] = useState({
@@ -20,54 +20,60 @@ export default function MachineForm() {
 
   useEffect(() => {
     if (decodedPartName && machineId) {
-      // Pre-fill basic info from URL
       setForm(prev => ({
         ...prev,
         part_name: decodedPartName,
         machine_number: machineId
       }));
 
-      // Fetch latest history
-      const fetchLatestHistory = async () => {
+      const fetchData = async () => {
         try {
-          const historyRef = collection(
-            db,
-            "all_part",
-            decodedPartName,
-            "machines",
-            `machine_${machineId}`,
-            "history"
-          );
+          let dataToSet = null;
 
-          const q = query(historyRef, orderBy("createdAt", "desc"), limit(1));
-          const querySnapshot = await getDocs(q);
+          if (recordId) {
+            // Fetch specific history record
+            const docRef = doc(
+              db,
+              "all_part",
+              decodedPartName,
+              "machines",
+              `machine_${machineId}`,
+              "history",
+              recordId
+            );
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+              dataToSet = docSnap.data();
+            }
+          } else {
+            // Do not fetch latest history. Leave inputs blank for new records.
+          }
 
-          if (!querySnapshot.empty) {
-            const latestDoc = querySnapshot.docs[0].data();
-
+          if (dataToSet) {
             // Format date for input type="date" (YYYY-MM-DD)
             let formattedDate = "";
-            if (latestDoc.date) {
-              formattedDate = latestDoc.date;
+            if (dataToSet.date) {
+              formattedDate = dataToSet.date;
             }
 
             setForm(prev => ({
               ...prev,
-              ...latestDoc,
+              ...dataToSet,
               date: formattedDate,
-              // Ensure part_name and machine_number stay consistent with URL even if DB data is weird
+              // Ensure part_name and machine_number stay consistent with URL
               part_name: decodedPartName,
               machine_number: machineId
             }));
           }
+
         } catch (error) {
-          console.error("Error fetching history:", error);
+          console.error("Error fetching data:", error);
         }
       };
 
-      fetchLatestHistory();
+      fetchData();
     }
-  }, [decodedPartName, machineId]);
+  }, [decodedPartName, machineId, recordId]);
 
   async function saveData(e) {
     e.preventDefault();
@@ -126,13 +132,15 @@ export default function MachineForm() {
 
   return (
     <div className="machine-screen">
-      <h1>Machine – Full Setting Form</h1>
+      <h1 className="machine-title">Machine – Full Setting Form</h1>
       <div className="display-grid">
-        <button onClick={saveData}></button>
+        {!recordId && <button onClick={saveData}></button>}
       </div>
 
       <div className="form-wrapper">
         <div className="form-canvas">
+
+          
           <img
             src={Test}
             className="reference-image"
