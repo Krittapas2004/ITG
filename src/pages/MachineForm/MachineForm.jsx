@@ -17,7 +17,64 @@ export default function MachineForm() {
     shift: "",
     part_name: "",
     part_number: "",
+    material: "",
+    temperature: "",
+    color: "",
+    hv_limit: "",
+    time_4th: "",
+    time_3rd: "",
+    time_2nd: "",
+    time_1st: "",
+    press_4th: "",
+    press_3rd: "",
+    press_2nd: "",
+    press_1st: "",
+    ret_vel: "",
+    zero_set: "",
+    mode: "",
+    flash: "",
   });
+
+  const formFields = [
+    { name: 'date', id: 'date-input', type: 'date' },
+    { name: 'machine_number', id: 'machine-number-input', type: 'text' },
+    { name: 'shift', id: 'shift-input', type: 'text' },
+    { name: 'part_name', id: 'part-name-input', type: 'text' },
+    { name: 'part_number', id: 'part-number-input', type: 'text' },
+    { name: 'material', id: 'material-input', type: 'text' },
+    { name: 'temperature', id: 'temperature-input', type: 'text' },
+    { name: 'color', id: 'color-input', type: 'text' },
+    { name: 'hv_limit', id: 'hv-limit-input', type: 'text', unit: "mm/sec" },
+    { name: 'time_4th', id: 'time-4th-input', type: 'text' },
+    { name: 'time_3rd', id: 'time-3rd-input', type: 'text' },
+    { name: 'time_2nd', id: 'time-2nd-input', type: 'text' },
+    { name: 'time_1st', id: 'time-1st-input', type: 'text' },
+    { name: 'press_4th', id: 'press-4th-input', type: 'text' },
+    { name: 'press_3rd', id: 'press-3rd-input', type: 'text' },
+    { name: 'press_2nd', id: 'press-2nd-input', type: 'text' },
+    { name: 'press_1st', id: 'press-1st-input', type: 'text' },
+    { name: 'ret_vel', id: 'ret-vel-input', type: 'text' },
+    { name: 'zero_set', id: 'zero-set-input', type: 'text' },
+    { name: 'mode', id: 'mode-input', type: 'text' },
+    { name: 'flash', id: 'flash-input', type: 'text' },
+    { name: 'flow_check', id: 'flow-check-input', type: 'text' },
+    { name: 'fill_t_limit', id: 'fill-t-limit-input', type: 'text' },
+    { name: 'stage', id: 'stage-input', type: 'text' },
+    { name: 'pos_vp', id: 'pos-vp-input', type: 'text' },
+    { name: 'pos_4th', id: 'pos-4th-input', type: 'text' },
+    { name: 'pos_3rd', id: 'pos-3rd-input', type: 'text' },
+    { name: 'pos_2nd', id: 'pos-2nd-input', type: 'text' },
+    { name: 'pos_1st', id: 'pos-1st-input', type: 'text' },
+    { name: 'vel_vp', id: 'vel-vp-input', type: 'text' },
+    { name: 'vel_4th', id: 'vel-4th-input', type: 'text' },
+    { name: 'vel_3rd', id: 'vel-3rd-input', type: 'text' },
+    { name: 'vel_2nd', id: 'vel-2nd-input', type: 'text' },
+    { name: 'vel_1st', id: 'vel-1st-input', type: 'text' },
+    { name: 'fill_press', id: 'fill-press-input', type: 'text' },
+    { name: 'dose_delay', id: 'dose-delay-input', type: 'text' },
+    { name: 'cool_time', id: 'cool-time-input', type: 'text' },
+    { name: 'interval_time', id: 'interval-time-input', type: 'text' },
+  ];
 
   useEffect(() => {
     if (decodedPartName && machineId) {
@@ -145,61 +202,21 @@ export default function MachineForm() {
             className="reference-image"
           />
 
-          {/* Date Input */}
-          <input
-            type="date"
-            className="form-input"
-            id="date-input"
-            name="date"
-            value={form.date}
-            onChange={handleChange}
-            disabled={!!recordId}
-          />
+          {formFields.map((field) => (
+            <div key={field.id} className="input-group">
+              <label htmlFor={field.id}>{field.label}</label>
+              <input
+                type={field.type}
+                className="form-input"
+                id={field.id}
+                name={field.name}
+                value={form[field.name]} // Dynamically gets the right value
+                onChange={(e) => handleChange(e, InputMode.NO_THAI)}
+                disabled={!!recordId}
+              />
+            </div>
+          ))}
 
-          {/* Machine Number Input */}
-          <input
-            type="text"
-            inputMode="numeric"
-            className="form-input"
-            id="machine-number-input"
-            name="machine_number"
-            value={form.machine_number}
-            onChange={(e) => handleChange(e, InputMode.ONLY_NUMBER)}
-            disabled={!!recordId}
-          />
-
-          {/* Shift Input */}
-          <input
-            type="text"
-            className="form-input"
-            id="shift-input"
-            name="shift"
-            value={form.shift}
-            onChange={(e) => handleChange(e, InputMode.NO_THAI)}
-            disabled={!!recordId}
-          />
-
-          {/* Part Name Input */}
-          <input
-            type="text"
-            className="form-input"
-            id="part-name-input"
-            name="part_name"
-            value={form.part_name}
-            onChange={(e) => handleChange(e, InputMode.NO_THAI)}
-            disabled={!!recordId}
-          />
-
-          {/* Part Number Input */}
-          <input
-            type="text"
-            className="form-input"
-            id="part-number-input"
-            name="part_number"
-            value={form.part_number}
-            onChange={(e) => handleChange(e, InputMode.NO_THAI)}
-            disabled={!!recordId}
-          />
 
           {!recordId && (
             <button className="save-btn" onClick={saveData}>

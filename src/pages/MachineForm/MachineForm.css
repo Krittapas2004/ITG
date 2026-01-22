@@ -100,10 +100,10 @@
 
 .form-input {
   position: absolute;
-  background: red ;
+  background: red;
   text-align: center;
   font-size: 14px;
-  height: 2%;
+  height: 1.9%;
   outline: none;
   border: none;
   box-shadow: none;
@@ -114,7 +114,6 @@
   border: none;
   box-shadow: none;
 }
-
 
 #date-input {
   width: 17.8%;
@@ -141,7 +140,205 @@
 }
 
 #part-number-input {
-  width: 17%;
-  top: 1%;
-  left: 14.7%;
+  width: 17.8%;
+  top: 14%;
+  left: 12.3%;
 }
+
+#material-input {
+  width: 19%;
+  top: 14%;
+  left: 36%;
+}
+
+#temperature-input {
+  width: 6%;
+  top: 14%;
+  left: 60.8%;
+}
+
+#color-input {
+  width: 24.4%;
+  top: 14%;
+  left: 72.6%;
+}
+
+#hv-limit-input {
+  width: 6%;
+  top: 19.9%;
+  left: 18.3%;
+}
+
+#time-4th-input {
+  width: 6%;
+  top: 25.8%;
+  left: 12.3%;
+}
+
+#time-3rd-input {
+  width: 5.8%;
+  top: 25.8%;
+  left: 18.4%;
+}
+
+#time-2nd-input {
+  width: 5.8%;
+  top: 25.8%;
+  left: 24.3%;
+}
+
+#time-1st-input {
+  width: 5.8%;
+  top: 25.8%;
+  left: 30.2%;
+}
+
+#press-4th-input {
+  width: 6%;
+  top: 27.8%;
+  left: 12.3%;
+}
+
+#press-3rd-input {
+  width: 5.8%;
+  top: 27.8%;
+  left: 18.4%;
+}
+
+#press-2nd-input {
+  width: 5.8%;
+  top: 27.8%;
+  left: 24.3%;
+}
+
+#press-1st-input {
+  width: 5.8%;
+  top: 27.8%;
+  left: 30.2%;
+}
+
+#ret-vel-input {
+  width: 6%;
+  top: 29.8%;
+  left: 12.3%;
+}
+
+#zero-set-input {
+  width: 6%;
+  top: 21.9%;
+  left: 42%;
+}
+
+#mode-input {
+  width: 6%;
+  top: 25.8%;
+  left: 42%;
+}
+
+#flash-input {
+  width: 6%;
+  top: 29.8%;
+  left: 42%;
+}
+
+#flow-check-input {
+  width: 11.8%;
+  top: 21.9%;
+  left: 55%;
+}
+
+#fill-t-limit-input {
+  width: 11.8%;
+  top: 21.9%;
+  left: 66.8%;
+}
+
+#stage-input {
+  width: 6%;
+  top: 21.9%;
+  left: 78.6%;
+}
+
+#pos-vp-input {
+  width: 5.8%;
+  top: 25.8%;
+  left: 55%;
+}
+
+#pos-4th-input {
+  width: 5.8%;
+  top: 25.8%;
+  left: 60.9%;
+}
+
+#pos-3rd-input {
+  width: 5.8%;
+  top: 25.8%;
+  left: 66.8%;
+}
+
+#pos-2nd-input {
+  width: 5.8%;
+  top: 25.8%;
+  left: 72.7%;
+}
+
+#pos-1st-input {
+  width: 6%;
+  top: 25.8%;
+  left: 78.6%;
+}
+
+#vel-vp-input {
+  width: 5.8%;
+  top: 27.8%;
+  left: 55%;
+}
+
+#vel-4th-input {
+  width: 5.8%;
+  top: 27.8%;
+  left: 60.9%;
+}
+
+#vel-3rd-input {
+  width: 5.8%;
+  top: 27.8%;
+  left: 66.8%;
+}
+
+#vel-2nd-input {
+  width: 5.8%;
+  top: 27.8%;
+  left: 72.7%;
+}
+
+#vel-1st-input {
+  width: 6%;
+  top: 27.8%;
+  left: 78.6%;
+}
+
+#fill-press-input {
+  width: 29.6%;
+  top: 29.8%;
+  left: 55%;
+}
+
+#dose-delay-input {
+  width: 12%;
+  top: 35.6%;
+  left: 6.3%;
+}
+
+#cool-time-input {
+  width: 12%;
+  top: 35.6%;
+  left: 6.3%;
+}
+
+
+
+
+
+
