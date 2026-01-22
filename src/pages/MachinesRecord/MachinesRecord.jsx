@@ -39,12 +39,6 @@ export default function MachinesRecord() {
         <div className="record-container">
             <div className="record-header">
                 <h1>{decodedPartName} - Machine {machineId}</h1>
-                <Link
-                    to={`/machine/${partName}/${machineId}/form`}
-                    className="add-record-btn"
-                >
-                    Add New Record
-                </Link>
             </div>
 
             {loading ? (

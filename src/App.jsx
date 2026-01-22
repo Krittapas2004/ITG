@@ -15,6 +15,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={< AllPart />} />
         <Route path="/machine-select/:partName" element={< MachineSelect />} />
+        <Route path="/machine/:partName/form" element={<MachineForm />} />
         <Route path="/machine/:partName/:machineId" element={<MachinesRecord />} />
         <Route path="/machine/:partName/:machineId/form" element={<MachineForm />} />
         <Route path="/machine/:partName/:machineId/record/:recordId" element={<MachineForm />} />

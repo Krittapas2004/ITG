@@ -51,9 +51,17 @@ export default function MachineSelect() {
 
   return (
     <div className="home-container">
-      <h1 className="home-title">
-        Select Machine for {decodedPartName}
-      </h1>
+      <div className="home-header">
+        <h1 className="home-title">
+          Select Machine for {decodedPartName}
+        </h1>
+        <Link
+          to={`/machine/${partName}/form`}
+          className="add-record-btn"
+        >
+          Add New Record
+        </Link>
+      </div>
 
       {loading ? (
         <p>Loading machines...</p>

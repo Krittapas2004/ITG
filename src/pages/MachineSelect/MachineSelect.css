@@ -12,6 +12,31 @@
 }
 
 /* Grid layout (same style as history page) */
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.home-title {
+    margin-bottom: 0;
+}
+
+.add-record-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.add-record-btn:hover {
+    background-color: #0056b3;
+}
+
 .home-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -40,5 +65,5 @@
     color: white;
     border-color: #0d6efd;
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
