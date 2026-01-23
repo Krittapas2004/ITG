@@ -19,61 +19,61 @@ export default function MachineForm() {
   const [form, setForm] = useState(initialFormState);
 
   useEffect(() => {
-  // 1. Always set the part name if it exists in the URL
-  if (decodedPartName) {
-    setForm(prev => ({
-      ...prev,
-      part_name: decodedPartName
-    }));
-  }
+    // 1. Always set the part name if it exists in the URL
+    if (decodedPartName) {
+      setForm(prev => ({
+        ...prev,
+        part_name: decodedPartName
+      }));
+    }
 
-  // 2. Set the machine ID if it exists in the URL
-  if (machineId) {
-    setForm(prev => ({
-      ...prev,
-      machine_number: machineId
-    }));
-  }
+    // 2. Set the machine ID if it exists in the URL
+    if (machineId) {
+      setForm(prev => ({
+        ...prev,
+        machine_number: machineId
+      }));
+    }
 
-  // 3. Only attempt to fetch existing data if both identifiers are present
-  if (decodedPartName && machineId) {
-    const fetchData = async () => {
-      try {
-        let dataToSet = null;
+    // 3. Only attempt to fetch existing data if both identifiers are present
+    if (decodedPartName && machineId) {
+      const fetchData = async () => {
+        try {
+          let dataToSet = null;
 
-        if (recordId) {
-          const docRef = doc(
-            db,
-            "all_part",
-            decodedPartName,
-            "machines",
-            `machine_${machineId}`,
-            "history",
-            recordId
-          );
-          const docSnap = await getDoc(docRef);
-          if (docSnap.exists()) {
-            dataToSet = docSnap.data();
+          if (recordId) {
+            const docRef = doc(
+              db,
+              "all_part",
+              decodedPartName,
+              "machines",
+              `machine_${machineId}`,
+              "history",
+              recordId
+            );
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+              dataToSet = docSnap.data();
+            }
           }
-        }
 
-        if (dataToSet) {
-          setForm(prev => ({
-            ...prev,
-            ...dataToSet,
-            date: dataToSet.date || "",
-            part_name: decodedPartName,
-            machine_number: machineId
-          }));
+          if (dataToSet) {
+            setForm(prev => ({
+              ...prev,
+              ...dataToSet,
+              date: dataToSet.date || "",
+              part_name: decodedPartName,
+              machine_number: machineId
+            }));
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
         }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+      };
 
-    fetchData();
-  }
-}, [decodedPartName, machineId, recordId]);
+      fetchData();
+    }
+  }, [decodedPartName, machineId, recordId]);
 
   async function saveData(e) {
     e.preventDefault();
@@ -127,20 +127,12 @@ export default function MachineForm() {
     }
   }
 
-  function handleChange(e, mode, fieldValidation) {
+  function handleChange(e, mode) {
     const { name, value } = e.target;
     let formatted = value;
 
-    if (fieldValidation === "toggle") {
-      const val = value.toLowerCase();
-      if (val !== "" && val !== "o" && val !== "on" && val !== "of" && val !== "off") {
-        return;
-      }
-      formatted = val.toUpperCase();
-    } else {
-      const upperValue = value.toUpperCase();
-      formatted = mode ? inputFormat(upperValue, mode) : upperValue;
-    }
+    const upperValue = value.toUpperCase();
+    formatted = mode ? inputFormat(upperValue, mode) : value;
 
     setForm((prev) => ({
       ...prev,
@@ -161,22 +153,49 @@ export default function MachineForm() {
             className="reference-image"
           />
 
-          {formFields.map((field) => (
-            <div key={field.id} className="input-group">
-              <label htmlFor={field.id}>{field.label}</label>
-              <input
-                autoComplete="off"
-                type={field.type}
-                className="form-input"
-                id={field.id}
-                name={field.name}
-                placeholder={field.placeholder || ""}
-                value={form[field.name] || ""} 
-                onChange={(e) => handleChange(e, InputMode.NO_THAI, field.validation)}
-                disabled={!!recordId}
-              />
-            </div>
-          ))}
+          {formFields.map((field) => {
+            let inputElement;
+
+            if (field.type === 'select') {
+              inputElement = (
+                <select
+                  className={field.class}
+                  id={field.id}
+                  name={field.name}
+                  value={form[field.name] || ""}
+                  onChange={(e) => handleChange(e)}
+                  disabled={!!recordId}
+                >
+                  {field.options.map((shift) => (
+                    <option key={shift} value={shift}>
+                      {shift}
+                    </option>
+                  ))}
+                </select>
+              )
+            } else {
+              inputElement = (
+                <input
+                  autoComplete="off"
+                  type={field.type}
+                  className={field.class}
+                  id={field.id}
+                  name={field.name}
+                  placeholder={""}
+                  value={form[field.name] || ""}
+                  onChange={(e) => handleChange(e, field.format)}
+                  disabled={!!recordId}
+                />
+              )
+            }
+
+            return (
+              <div key={field.id} className="input-group">
+                <label htmlFor={field.id}>{field.label}</label>
+                {inputElement}
+              </div>
+            );
+          })}
 
 
           {!recordId && (
