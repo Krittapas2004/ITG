@@ -1,6 +1,6 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { db } from "../../firebase";
-import { collection, addDoc, doc, setDoc, getDocs, getDoc, query, orderBy, limit } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import { inputFormat, InputMode } from "../../utility/InputUtil.js";
 import { useState, useEffect } from "react";
 import Test from "../../assets/worksheet.jpg";
@@ -11,98 +11,79 @@ export default function MachineForm() {
   const { partName, machineId, recordId } = useParams();
   const navigate = useNavigate();
   const decodedPartName = partName ? decodeURIComponent(partName) : "";
+  const initialFormState = formFields.reduce((acc, field) => {
+    acc[field.name] = "";
+    return acc;
+  }, {});
 
-  const [form, setForm] = useState({
-    date: "",
-    machine_number: "",
-    shift: "",
-    part_name: "",
-    part_number: "",
-    material: "",
-    temperature: "",
-    color: "",
-    hv_limit: "",
-    time_4th: "",
-    time_3rd: "",
-    time_2nd: "",
-    time_1st: "",
-    press_4th: "",
-    press_3rd: "",
-    press_2nd: "",
-    press_1st: "",
-    ret_vel: "",
-    zero_set: "",
-    mode: "",
-    flash: "",
-  });
+  const [form, setForm] = useState(initialFormState);
 
   useEffect(() => {
-    if (decodedPartName && machineId) {
-      setForm(prev => ({
-        ...prev,
-        part_name: decodedPartName,
-        machine_number: machineId
-      }));
+  // 1. Always set the part name if it exists in the URL
+  if (decodedPartName) {
+    setForm(prev => ({
+      ...prev,
+      part_name: decodedPartName
+    }));
+  }
 
-      const fetchData = async () => {
-        try {
-          let dataToSet = null;
+  // 2. Set the machine ID if it exists in the URL
+  if (machineId) {
+    setForm(prev => ({
+      ...prev,
+      machine_number: machineId
+    }));
+  }
 
-          if (recordId) {
-            // Fetch specific history record
-            const docRef = doc(
-              db,
-              "all_part",
-              decodedPartName,
-              "machines",
-              `machine_${machineId}`,
-              "history",
-              recordId
-            );
-            const docSnap = await getDoc(docRef);
-            if (docSnap.exists()) {
-              dataToSet = docSnap.data();
-            }
-          } else {
-            // Do not fetch latest history. Leave inputs blank for new records.
+  // 3. Only attempt to fetch existing data if both identifiers are present
+  if (decodedPartName && machineId) {
+    const fetchData = async () => {
+      try {
+        let dataToSet = null;
+
+        if (recordId) {
+          const docRef = doc(
+            db,
+            "all_part",
+            decodedPartName,
+            "machines",
+            `machine_${machineId}`,
+            "history",
+            recordId
+          );
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            dataToSet = docSnap.data();
           }
-
-          if (dataToSet) {
-            // Format date for input type="date" (YYYY-MM-DD)
-            let formattedDate = "";
-            if (dataToSet.date) {
-              formattedDate = dataToSet.date;
-            }
-
-            setForm(prev => ({
-              ...prev,
-              ...dataToSet,
-              date: formattedDate,
-              // Ensure part_name and machine_number stay consistent with URL
-              part_name: decodedPartName,
-              machine_number: machineId
-            }));
-          }
-
-        } catch (error) {
-          console.error("Error fetching data:", error);
         }
-      };
 
-      fetchData();
-    }
-  }, [decodedPartName, machineId, recordId]);
+        if (dataToSet) {
+          setForm(prev => ({
+            ...prev,
+            ...dataToSet,
+            date: dataToSet.date || "",
+            part_name: decodedPartName,
+            machine_number: machineId
+          }));
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }
+}, [decodedPartName, machineId, recordId]);
 
   async function saveData(e) {
     e.preventDefault();
-
-    if (!form.part_name || !form.machine_number) {
-      alert("Part Name and Machine Number are required!");
-      return;
-    }
-
     const now = new Date();
     const timestampId = now.toLocaleString('sv-SE').replace(' ', '_');
+
+    if (!form.part_name || !form.machine_number) {
+      alert("Error: Missing Part Name or Machine Number. Cannot save.");
+      return;
+    }
 
     try {
       const partRef = doc(db, "all_part", form.part_name);
@@ -146,38 +127,57 @@ export default function MachineForm() {
     }
   }
 
-  function handleChange(e, mode) {
+  function handleChange(e, mode, fieldValidation) {
     const { name, value } = e.target;
-    const formatted = mode ? inputFormat(value, mode) : value;
-    setForm(prev => ({
+    let formatted = value;
+
+    if (fieldValidation === "toggle") {
+      const val = value.toLowerCase();
+      if (val !== "" && val !== "o" && val !== "on" && val !== "of" && val !== "off") {
+        return;
+      }
+      formatted = val.toUpperCase();
+    } else {
+      const upperValue = value.toUpperCase();
+      formatted = mode ? inputFormat(upperValue, mode) : upperValue;
+    }
+
+    setForm((prev) => ({
       ...prev,
-      [name]: formatted
+      [name]: formatted,
     }));
   }
 
   return (
     <div className="machine-screen">
       <h1 className="machine-title">Machine – Full Setting Form</h1>
+
       <div className="form-wrapper">
         <div className="form-canvas">
+
+
           <img
             src={Test}
             className="reference-image"
           />
+
           {formFields.map((field) => (
             <div key={field.id} className="input-group">
               <label htmlFor={field.id}>{field.label}</label>
               <input
+                autoComplete="off"
                 type={field.type}
                 className="form-input"
                 id={field.id}
                 name={field.name}
-                value={form[field.name]} // Dynamically gets the right value
-                onChange={(e) => handleChange(e, InputMode.NO_THAI)}
+                placeholder={field.placeholder || ""}
+                value={form[field.name] || ""} 
+                onChange={(e) => handleChange(e, InputMode.NO_THAI, field.validation)}
                 disabled={!!recordId}
               />
             </div>
           ))}
+
 
           {!recordId && (
             <button className="save-btn" onClick={saveData}>

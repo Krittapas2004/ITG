@@ -100,9 +100,9 @@
 
 .form-input {
   position: absolute;
-  background: red;
+  background: none;
   text-align: center;
-  font-size: 14px;
+  font-size: px;
   height: 1.9%;
   outline: none;
   border: none;
@@ -119,6 +119,7 @@
   width: 17.8%;
   top: 12%;
   left: 12.3%;
+  font-size: 10px;
 }
 
 #machine-number-input {
@@ -325,8 +326,6 @@
   left: 55%;
 }
 
-{/* Dose Detail */}
-
 #dose-delay-input {
   width: 12%;
   top: 35.6%;
@@ -342,7 +341,7 @@
 #interval-time-input {
   width: 12%;
   top: 43.5%;
-  left: 6.3%; 
+  left: 6.3%;
 }
 
 #pull-back-pos-input {
@@ -434,8 +433,6 @@
   top: 43.5%;
   left: 84.7%;
 }
-
-{/* Ejector Detail Open Position */}
 
 #open-pos-limit-input {
   width: 6%;
@@ -693,7 +690,7 @@
   width: 6%;
   top: 82.8%;
   left: 42%;
-} 
+}
 
 #lowered-z2-input {
   width: 23.6%;
@@ -737,17 +734,51 @@
   left: 42%;
 }
 
+#on-off-z5-input {
+  width: 5.9%;
+  top: 88.7%;
+  left: 18.3%;
+}
 
+#on-off-z4-input {
+  width: 5.8%;
+  top: 88.7%;
+  left: 24.3%;
+}
 
+#on-off-z3-input {
+  width: 5.8%;
+  top: 88.7%;
+  left: 30.2%;
+}
 
+#on-off-z2-input {
+  width: 5.8%;
+  top: 88.7%;
+  left: 36.1%;
+}
 
+#on-off-z1-input {
+  width: 6%;
+  top: 88.7%;
+  left: 42%;
+}
 
+#water-1st-input {
+  width: 5.8%;
+  top: 80.85%;
+  left: 55%;
+}
 
+#water-2nd-input {
+  width: 5.8%;
+  top: 86.75%;
+  left: 55%;
+}
 
-
-
-
-
-
-
+#water-3rd-input {
+  width: 5.8%;
+  top: 88.7%;
+  left: 55%;
+}
 

@@ -1,0 +1,12 @@
+.add-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.add-part-button {
+    display: flex;
+    justify-content: center;
+    height: auto;
+}

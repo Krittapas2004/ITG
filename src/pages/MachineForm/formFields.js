@@ -102,8 +102,13 @@ export const formFields = [
     { name: 'range_z3', id: 'range-z3-input', type: 'text' },
     { name: 'range_z2', id: 'range-z2-input', type: 'text' },
     { name: 'range_z1', id: 'range-z1-input', type: 'text' },
+    { name: 'on_off_z5', id: 'on-off-z5-input', type: 'text' },
+    { name: 'on_off_z4', id: 'on-off-z4-input', type: 'text' },
+    { name: 'on_off_z3', id: 'on-off-z3-input', type: 'text' },
+    { name: 'on_off_z2', id: 'on-off-z2-input', type: 'text' },
+    { name: 'on_off_z1', id: 'on-off-z1-input', type: 'text' },
     { name: 'water_1st', id: 'water-1st-input', type: 'text' },
     { name: 'water_2nd', id: 'water-2nd-input', type: 'text' },
     { name: 'water_3rd', id: 'water-3rd-input', type: 'text' },
-    
+
 ];
