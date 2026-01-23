@@ -14,7 +14,14 @@ export default function Navbar() {
         const parts = path.split("/");
         // parts = ["", "machine", "part", "id", ...]
         if (parts.length >= 4) {
-            backPath = `/machine/${parts[2]}/${parts[3]}`;
+            if (parts[3] === "form") {
+                // /machine/PART/form -> /machine-select/PART
+                backPath = `/machine-select/${parts[2]}`;
+            } else {
+                // /machine/PART/ID/form -> /machine/PART/ID
+                // /machine/PART/ID/record/ID -> /machine/PART/ID
+                backPath = `/machine/${parts[2]}/${parts[3]}`;
+            }
         }
     } else if (path.startsWith("/machine/")) {
         // /machine/PART/ID -> /machine-select/PART

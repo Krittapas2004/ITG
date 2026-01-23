@@ -325,6 +325,8 @@
   left: 55%;
 }
 
+{/* Dose Detail */}
+
 #dose-delay-input {
   width: 12%;
   top: 35.6%;
@@ -333,9 +335,416 @@
 
 #cool-time-input {
   width: 12%;
-  top: 35.6%;
+  top: 39.6%;
   left: 6.3%;
 }
+
+#interval-time-input {
+  width: 12%;
+  top: 43.5%;
+  left: 6.3%; 
+}
+
+#pull-back-pos-input {
+  width: 5.8%;
+  top: 39.6%;
+  left: 30.2%;
+}
+
+#pull-back-vel-input {
+  width: 5.8%;
+  top: 41.55%;
+  left: 30.2%;
+}
+
+#clamp-f-input {
+  width: 5.8%;
+  top: 35.65%;
+  left: 55%;
+}
+
+#dose-pos-1st-input {
+  width: 5.8%;
+  top: 39.6%;
+  left: 55%;
+}
+
+#dose-pos-2nd-input {
+  width: 5.8%;
+  top: 39.6%;
+  left: 60.9%;
+}
+
+#dose-pos-end-input {
+  width: 5.8%;
+  top: 39.6%;
+  left: 66.8%;
+}
+
+#dose-bp-1st-input {
+  width: 5.8%;
+  top: 41.55%;
+  left: 55%;
+}
+
+#dose-bp-2nd-input {
+  width: 5.8%;
+  top: 41.55%;
+  left: 60.9%;
+}
+
+#dose-bp-end-input {
+  width: 5.8%;
+  top: 41.55%;
+  left: 66.8%;
+}
+
+#dose-rot-1st-input {
+  width: 5.8%;
+  top: 43.5%;
+  left: 55%;
+}
+
+#dose-rot-2nd-input {
+  width: 5.8%;
+  top: 43.5%;
+  left: 60.9%;
+}
+
+#dose-rot-end-input {
+  width: 5.8%;
+  top: 43.5%;
+  left: 66.8%;
+}
+
+#dose-pull-back-1st-input {
+  width: 6.1%;
+  top: 39.6%;
+  left: 84.7%;
+}
+
+#dose-pull-back-2nd-input {
+  width: 6.1%;
+  top: 41.55%;
+  left: 84.7%;
+}
+
+#dose-pull-back-delay-input {
+  width: 6.1%;
+  top: 43.5%;
+  left: 84.7%;
+}
+
+{/* Ejector Detail Open Position */}
+
+#open-pos-limit-input {
+  width: 6%;
+  top: 53.3%;
+  left: 12.3%;
+}
+
+#open-pos-2nd-input {
+  width: 5.8%;
+  top: 53.3%;
+  left: 18.4%;
+}
+
+#open-pos-1st-input {
+  width: 5.8%;
+  top: 53.3%;
+  left: 24.3%;
+}
+
+#open-vel-limit-input {
+  width: 6%;
+  top: 55.3%;
+  left: 12.3%;
+}
+
+#open-vel-2nd-input {
+  width: 5.8%;
+  top: 55.3%;
+  left: 18.4%;
+}
+
+#open-vel-1st-input {
+  width: 5.8%;
+  top: 55.3%;
+  left: 24.3%;
+}
+
+#close-pos-limit-input {
+  width: 6%;
+  top: 53.3%;
+  left: 42%;
+}
+
+#close-pos-2nd-input {
+  width: 6.8%;
+  top: 53.3%;
+  left: 48.1%;
+}
+
+#close-pos-1st-input {
+  width: 5.8%;
+  top: 53.3%;
+  left: 55%;
+}
+
+#close-vel-limit-input {
+  width: 6%;
+  top: 55.3%;
+  left: 42%;
+}
+
+#close-vel-2nd-input {
+  width: 6.8%;
+  top: 55.3%;
+  left: 48.1%;
+}
+
+#close-vel-1st-input {
+  width: 5.8%;
+  top: 55.3%;
+  left: 55%;
+}
+
+#lw-clamp-pos-input {
+  width: 6%;
+  top: 53.3%;
+  left: 72.6%;
+}
+
+#lw-clamp-press-input {
+  width: 6%;
+  top: 55.3%;
+  left: 72.6%;
+}
+
+#select-stage-input {
+  width: 6.1%;
+  top: 53.3%;
+  left: 84.7%;
+}
+
+#ejector-mode-input {
+  width: 6%;
+  top: 63.15%;
+  left: 6.2%;
+}
+
+#ejector-count-input {
+  width: 6%;
+  top: 67.1%;
+  left: 6.2%;
+}
+
+#ejector-delay-input {
+  width: 6%;
+  top: 71%;
+  left: 6.2%;
+}
+
+#ejector-interval-input {
+  width: 6%;
+  top: 63.15%;
+  left: 18.3%;
+}
+
+#ejector-ret-1st-input {
+  width: 6%;
+  top: 65.1%;
+  left: 30.1%;
+}
+
+#ejector-ret-2nd-input {
+  width: 6%;
+  top: 67.05%;
+  left: 30.1%;
+}
+
+#ejector-ret-3rd-input {
+  width: 6%;
+  top: 69%;
+  left: 30.1%;
+}
+
+#ejector-pos-1st-input {
+  width: 6.9%;
+  top: 65.1%;
+  left: 48%;
+}
+
+#ejector-pos-eject-input {
+  width: 5.8%;
+  top: 65.1%;
+  left: 55%;
+}
+
+#ejector-vel-1st-input {
+  width: 6.9%;
+  top: 67.05%;
+  left: 48%;
+}
+
+#ejector-vel-eject-input {
+  width: 5.8%;
+  top: 67.05%;
+  left: 55%;
+}
+
+#ejector-press-input {
+  width: 12.8%;
+  top: 69.1%;
+  left: 48%;
+}
+
+#ejector-start-input {
+  width: 11.7%;
+  top: 61.16%;
+  left: 66.8%;
+}
+
+#ejector-start-pos-input {
+  width: 6%;
+  top: 61.16%;
+  left: 84.8%;
+}
+
+#ejector-hold-input {
+  width: 6%;
+  top: 65.1%;
+  left: 78.5%;
+}
+
+#eject-hold-input {
+  width: 6%;
+  top: 67.1%;
+  left: 78.6%;
+}
+
+#hold-retract-input {
+  width: 6%;
+  top: 69.1%;
+  left: 78.6%;
+}
+
+#re-eject-hold-input {
+  width: 6%;
+  top: 71.05%;
+  left: 78.6%;
+}
+
+#molding-z5-input {
+  width: 5.9%;
+  top: 80.85%;
+  left: 18.3%;
+}
+
+#molding-z4-input {
+  width: 5.8%;
+  top: 80.85%;
+  left: 24.3%;
+}
+
+#molding-z3-input {
+  width: 5.8%;
+  top: 80.85%;
+  left: 30.2%;
+}
+
+#molding-z2-input {
+  width: 5.8%;
+  top: 80.85%;
+  left: 36.1%;
+}
+
+#molding-z1-input {
+  width: 6%;
+  top: 80.85%;
+  left: 42%;
+}
+
+#purge-z5-input {
+  width: 5.9%;
+  top: 82.8%;
+  left: 18.3%;
+}
+
+#purge-z4-input {
+  width: 5.8%;
+  top: 82.8%;
+  left: 24.3%;
+}
+
+#purge-z3-input {
+  width: 5.8%;
+  top: 82.8%;
+  left: 30.2%;
+}
+
+#purge-z2-input {
+  width: 5.8%;
+  top: 82.8%;
+  left: 36.1%;
+}
+
+#purge-z1-input {
+  width: 6%;
+  top: 82.8%;
+  left: 42%;
+} 
+
+#lowered-z2-input {
+  width: 23.6%;
+  top: 84.8%;
+  left: 18.3%;
+}
+
+#lowered-z1-input {
+  width: 6%;
+  top: 84.8%;
+  left: 42%;
+}
+
+#range-z5-input {
+  width: 5.9%;
+  top: 86.75%;
+  left: 18.3%;
+}
+
+#range-z4-input {
+  width: 5.8%;
+  top: 86.75%;
+  left: 24.3%;
+}
+
+#range-z3-input {
+  width: 5.8%;
+  top: 86.75%;
+  left: 30.2%;
+}
+
+#range-z2-input {
+  width: 5.8%;
+  top: 86.75%;
+  left: 36.1%;
+}
+
+#range-z1-input {
+  width: 6%;
+  top: 86.75%;
+  left: 42%;
+}
+
+
+
+
+
+
+
+
+
 
 
 
