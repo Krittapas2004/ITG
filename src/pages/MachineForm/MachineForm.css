@@ -150,24 +150,33 @@
 }
 
 #dose-delay-input, #clamp-f-input {
-  top: 34.7%;
+  top: 36.05%;
 }
 
 #cool-time-input, #pull-back-pos-input, #dose-pos-1st-input, #dose-pos-2nd-input, 
 #dose-pos-end-input, #dose-pull-back-1st-input {
-  top: 38.44%;
+  top: 39.94%;
 } 
 
 #pull-back-vel-input, #dose-bp-1st-input, #dose-bp-2nd-input, #dose-bp-end-input, 
 #dose-pull-back-2nd-input {
-  top: 40.35%;
+  top: 41.95%;
 }
 
 #interval-time-input, #dose-rot-1st-input, #dose-rot-2nd-input, #dose-rot-end-input, 
 #dose-pull-back-delay-input {
-  top: 42.23%;
+  top: 43.9%;
 }
 
+#open-vel-limit-input, #open-vel-2nd-input, #open-vel-1st-input, #close-vel-limit-input,
+#close-vel-2nd-input, #close-vel-1st-input, #lw-clamp-press-input {
+  top: 55.74%;
+}
+
+#open-pos-limit-input, #open-pos-2nd-input, #open-pos-1st-input, #close-pos-limit-input,
+#close-pos-2nd-input, #close-pos-1st-input, #lw-clamp-pos-input, #select-stage-input {
+  top: 53.78%;
+}
 #date-input {
   width: 17.8%;
   left: 12.3%;
@@ -436,91 +445,76 @@
 
 #open-pos-limit-input {
   width: 6%;
-  top: 53.3%;
   left: 12.3%;
 }
 
 #open-pos-2nd-input {
   width: 5.8%;
-  top: 53.3%;
   left: 18.4%;
 }
 
 #open-pos-1st-input {
   width: 5.8%;
-  top: 53.3%;
   left: 24.3%;
 }
 
 #open-vel-limit-input {
   width: 6%;
-  top: 55.3%;
   left: 12.3%;
 }
 
 #open-vel-2nd-input {
   width: 5.8%;
-  top: 55.3%;
   left: 18.4%;
 }
 
 #open-vel-1st-input {
   width: 5.8%;
-  top: 55.3%;
   left: 24.3%;
 }
 
 #close-pos-limit-input {
   width: 6%;
-  top: 53.3%;
   left: 42%;
 }
 
 #close-pos-2nd-input {
   width: 6.8%;
-  top: 53.3%;
   left: 48.1%;
 }
 
 #close-pos-1st-input {
   width: 5.8%;
-  top: 53.3%;
   left: 55%;
 }
 
 #close-vel-limit-input {
   width: 6%;
-  top: 55.3%;
   left: 42%;
 }
 
 #close-vel-2nd-input {
   width: 6.8%;
-  top: 55.3%;
   left: 48.1%;
 }
 
 #close-vel-1st-input {
   width: 5.8%;
-  top: 55.3%;
   left: 55%;
 }
 
 #lw-clamp-pos-input {
   width: 6%;
-  top: 53.3%;
   left: 72.6%;
 }
 
 #lw-clamp-press-input {
   width: 6%;
-  top: 55.3%;
   left: 72.6%;
 }
 
 #select-stage-input {
   width: 6.1%;
-  top: 53.3%;
   left: 84.7%;
 }
 
