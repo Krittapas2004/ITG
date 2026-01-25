@@ -120,7 +120,7 @@ export default function MachineForm() {
       });
 
       alert(`Saved successfully as: ${timestampId}`);
-      navigate(`/machine/${partName}/${machineId}`);
+      navigate(`/machine/${encodeURIComponent(form.part_name)}/${form.machine_number}/record/${timestampId}`);
     } catch (error) {
       console.error("Save error:", error);
       alert("Error saving data. Check console.");
@@ -166,9 +166,10 @@ export default function MachineForm() {
                   onChange={(e) => handleChange(e)}
                   disabled={!!recordId}
                 >
-                  {field.options.map((shift) => (
-                    <option key={shift} value={shift}>
-                      {shift}
+                  <option value="" disabled>-- Select --</option>
+                  {field.options.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
                     </option>
                   ))}
                 </select>
