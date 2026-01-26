@@ -111,8 +111,12 @@
   box-shadow: none;
   padding: 0px;
   margin: 0px;
-  font-size: 13px;
+  font-size: 10px;
   color: rgb(0, 30, 255);
+}
+
+.select-field, .date-field {
+  padding-left: 3px;
 }
 
 .date-field:disabled,
@@ -284,7 +288,6 @@
 #mode-input {
   width: 6%;
   left: 41.92%;
-  font-size: 12px;
 }
 
 #flash-input {
@@ -784,5 +787,4 @@
   top: 89.2%;
   left: 54.9%;
 }
-
 
