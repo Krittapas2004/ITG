@@ -80,17 +80,17 @@
 .record-info h3 {
     margin: 0 0 0.5rem 0;
     font-size: 1.1rem;
-    color: #333;
+    color: black;
 }
 
 .record-info p {
     margin: 0;
-    color: #666;
+    color: black;
 }
 
 .record-info .timestamp {
     font-size: 0.8rem;
-    color: #999;
+    color: black;
     margin-top: 0.5rem;
 }
 

@@ -112,6 +112,7 @@
   padding: 0px;
   margin: 0px;
   font-size: 13px;
+  color: red;
 }
 
 .date-field:focus,
@@ -168,13 +169,13 @@
   top: 43.9%;
 }
 
-#open-vel-limit-input, #open-vel-2nd-input, #open-vel-1st-input, #close-vel-limit-input,
-#close-vel-2nd-input, #close-vel-1st-input, #lw-clamp-press-input {
+#open-vel-limit-input, #open-vel-2nd-input, #open-vel-1st-input, #close-vel-1st-input,
+#close-vel-2nd-input, #close-vel-clamp-input, #lw-clamp-press-input {
   top: 55.74%;
 }
 
-#open-pos-limit-input, #open-pos-2nd-input, #open-pos-1st-input, #close-pos-limit-input,
-#close-pos-2nd-input, #close-pos-1st-input, #lw-clamp-pos-input, #select-stage-input {
+#open-pos-limit-input, #open-pos-2nd-input, #open-pos-1st-input, #close-pos-1st-input,
+#close-pos-2nd-input, #close-pos-clamp-input, #lw-clamp-pos-input, #select-stage-input {
   top: 53.78%;
 }
 #date-input {
@@ -276,6 +277,7 @@
 #mode-input {
   width: 6%;
   left: 41.92%;
+  font-size: 12px;
 }
 
 #flash-input {
@@ -473,7 +475,7 @@
   left: 24.3%;
 }
 
-#close-pos-limit-input {
+#close-pos-1st-input {
   width: 6%;
   left: 42%;
 }
@@ -483,12 +485,12 @@
   left: 48.1%;
 }
 
-#close-pos-1st-input {
+#close-pos-clamp-input {
   width: 5.8%;
   left: 55%;
 }
 
-#close-vel-limit-input {
+#close-vel-1st-input {
   width: 6%;
   left: 42%;
 }
@@ -498,7 +500,7 @@
   left: 48.1%;
 }
 
-#close-vel-1st-input {
+#close-vel-clamp-input {
   width: 5.8%;
   left: 55%;
 }
@@ -775,4 +777,5 @@
   top: 89.2%;
   left: 54.9%;
 }
+
 

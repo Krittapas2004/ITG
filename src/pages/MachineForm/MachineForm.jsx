@@ -168,7 +168,7 @@ export default function MachineForm() {
                 >
                   <option value="" disabled></option>
                   {field.options.map((option) => (
-                    <option key={option} value={option}>
+                    <option id={field.id} key={option} value={option}>
                       {option}
                     </option>
                   ))}
