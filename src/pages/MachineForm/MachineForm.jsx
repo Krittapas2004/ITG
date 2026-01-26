@@ -166,7 +166,7 @@ export default function MachineForm() {
                   onChange={(e) => handleChange(e)}
                   disabled={!!recordId}
                 >
-                  <option value="" disabled>-- Select --</option>
+                  <option value="" disabled></option>
                   {field.options.map((option) => (
                     <option key={option} value={option}>
                       {option}
