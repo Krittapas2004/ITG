@@ -115,6 +115,13 @@
   color: rgb(0, 30, 255);
 }
 
+.date-field:disabled,
+.number-field:disabled,
+.select-field:disabled,
+.text-field:disabled {
+  color: rgb(0, 30, 255);
+}
+
 .date-field:focus,
 .number-field:focus, 
 .select-field:focus,
