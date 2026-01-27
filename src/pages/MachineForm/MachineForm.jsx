@@ -11,8 +11,9 @@ export default function MachineForm() {
   const { partName, machineId, recordId } = useParams();
   const navigate = useNavigate();
   const decodedPartName = partName ? decodeURIComponent(partName) : "";
+  const today = new Date().toISOString().split('T')[0];
   const initialFormState = formFields.reduce((acc, field) => {
-    acc[field.name] = "";
+    acc[field.name] = field.name === 'date' ? today : "";
     return acc;
   }, {});
 
@@ -118,8 +119,6 @@ export default function MachineForm() {
         saveTime: timestampId,
         createdAt: now,
       });
-
-      alert(`Saved successfully as: ${timestampId}`);
       navigate(`/machine/${encodeURIComponent(form.part_name)}/${form.machine_number}/record/${timestampId}`);
     } catch (error) {
       console.error("Save error:", error);
@@ -132,7 +131,7 @@ export default function MachineForm() {
     let formatted = value;
 
     const upperValue = value.toUpperCase();
-    formatted = mode ? inputFormat(upperValue, mode) : value;
+    formatted = mode ? inputFormat(upperValue, mode) : upperValue;
 
     setForm((prev) => ({
       ...prev,

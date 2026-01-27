@@ -11,6 +11,16 @@ export default function MachinesRecord() {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
+    const formatDate = (dateStr) => {
+        if (!dateStr) return "N/A";
+        const parts = dateStr.split("-");
+        if (parts.length === 3) {
+            const [year, month, day] = parts;
+            return `${day}-${month}-${year}`;
+        }
+        return dateStr;
+    };
+
     useEffect(() => {
         const historyRef = collection(
             db,
@@ -55,7 +65,7 @@ export default function MachinesRecord() {
                         >
                             <div className="record-card">
                                 <div className="record-info">
-                                    <h3>Date: {record.date || "N/A"}</h3>
+                                    <h3>Date: {formatDate(record.date)}</h3>
                                     <p>Shift: {record.shift || "-"}</p>
                                 </div>
                             </div>

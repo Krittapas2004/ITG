@@ -98,8 +98,8 @@
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-.date-field, 
-.number-field, 
+.date-field,
+.number-field,
 .select-field,
 .text-field {
   position: absolute;
@@ -113,9 +113,11 @@
   margin: 0px;
   font-size: 10px;
   color: rgb(0, 30, 255);
+  text-transform: uppercase;
 }
 
-.select-field, .date-field {
+.select-field,
+.date-field {
   padding-left: 3px;
 }
 
@@ -127,7 +129,7 @@
 }
 
 .date-field:focus,
-.number-field:focus, 
+.number-field:focus,
 .select-field:focus,
 .text-field:focus {
   outline: none;
@@ -135,60 +137,109 @@
   box-shadow: none;
 }
 
-#date-input,#machine-number-input,#shift-input,#part-name-input  {
+#date-input,
+#machine-number-input,
+#shift-input,
+#part-name-input {
   top: 12.44%;
 }
 
-#part-number-input, #material-input, #temperature-input, #color-input {
+#part-number-input,
+#material-input,
+#temperature-input,
+#color-input {
   top: 14.4%;
 }
 
-#time-4th-input, #time-3rd-input, #time-2nd-input, #time-1st-input, #mode-input,
-#pos-vp-input, #pos-4th-input, #pos-3rd-input, #pos-2nd-input, #pos-1st-input {
+#time-4th-input,
+#time-3rd-input,
+#time-2nd-input,
+#time-1st-input,
+#mode-input,
+#pos-vp-input,
+#pos-4th-input,
+#pos-3rd-input,
+#pos-2nd-input,
+#pos-1st-input {
   top: 26.2%;
 }
 
-#zero-set-input, #flow-check-input, #fill-t-limit-input, #stage-input {
+#zero-set-input,
+#flow-check-input,
+#fill-t-limit-input,
+#stage-input {
   top: 22.28%;
 }
 
-#press-4th-input, #press-3rd-input, #press-2nd-input, #press-1st-input, 
-#vel-vp-input, #vel-4th-input, #vel-3rd-input, #vel-2nd-input, #vel-1st-input {
+#press-4th-input,
+#press-3rd-input,
+#press-2nd-input,
+#press-1st-input,
+#vel-vp-input,
+#vel-4th-input,
+#vel-3rd-input,
+#vel-2nd-input,
+#vel-1st-input {
   top: 28.2%;
 }
 
-#ret-vel-input, #flash-input, #fill-press-input {
+#ret-vel-input,
+#flash-input,
+#fill-press-input {
   top: 30.15%;
 }
 
-#dose-delay-input, #clamp-f-input {
+#dose-delay-input,
+#clamp-f-input {
   top: 36.05%;
 }
 
-#cool-time-input, #pull-back-pos-input, #dose-pos-1st-input, #dose-pos-2nd-input, 
-#dose-pos-end-input, #dose-pull-back-1st-input {
+#cool-time-input,
+#pull-back-pos-input,
+#dose-pos-1st-input,
+#dose-pos-2nd-input,
+#dose-pos-end-input,
+#dose-pull-back-1st-input {
   top: 39.94%;
-} 
+}
 
-#pull-back-vel-input, #dose-bp-1st-input, #dose-bp-2nd-input, #dose-bp-end-input, 
+#pull-back-vel-input,
+#dose-bp-1st-input,
+#dose-bp-2nd-input,
+#dose-bp-end-input,
 #dose-pull-back-2nd-input {
   top: 41.95%;
 }
 
-#interval-time-input, #dose-rot-1st-input, #dose-rot-2nd-input, #dose-rot-end-input, 
+#interval-time-input,
+#dose-rot-1st-input,
+#dose-rot-2nd-input,
+#dose-rot-end-input,
 #dose-pull-back-delay-input {
   top: 43.9%;
 }
 
-#open-vel-limit-input, #open-vel-2nd-input, #open-vel-1st-input, #close-vel-1st-input,
-#close-vel-2nd-input, #close-vel-clamp-input, #lw-clamp-press-input {
+#open-vel-limit-input,
+#open-vel-2nd-input,
+#open-vel-1st-input,
+#close-vel-1st-input,
+#close-vel-2nd-input,
+#close-vel-clamp-input,
+#lw-clamp-press-input {
   top: 55.74%;
 }
 
-#open-pos-limit-input, #open-pos-2nd-input, #open-pos-1st-input, #close-pos-1st-input,
-#close-pos-2nd-input, #close-pos-clamp-input, #lw-clamp-pos-input, #select-stage-input {
+#open-pos-limit-input,
+#open-pos-2nd-input,
+#open-pos-1st-input,
+#close-pos-1st-input,
+#close-pos-2nd-input,
+#close-pos-clamp-input,
+#lw-clamp-pos-input,
+#select-stage-input {
   top: 53.78%;
 }
+
 #date-input {
   width: 17.8%;
   left: 12.3%;
@@ -787,4 +838,3 @@
   top: 89.2%;
   left: 54.9%;
 }
-
