@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
+import { collection, query, orderBy, onSnapshot, limit } from "firebase/firestore";
 import { db } from "../../firebase";
 import "./MachinesRecord.css";
 
@@ -36,7 +36,7 @@ export default function MachinesRecord() {
             "history"
         );
 
-        const q = query(historyRef, orderBy("createdAt", "desc"));
+        const q = query(historyRef, orderBy("createdAt", "desc"), limit(2));
 
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const historyData = snapshot.docs.map(doc => ({

@@ -142,12 +142,16 @@ export default function MachineForm() {
     }
   }
 
-  function handleChange(e, mode) {
+  function handleChange(e, fieldType, mode) {
     const { name, value } = e.target;
     let formatted = value;
 
-    const upperValue = value.toUpperCase();
-    formatted = mode ? inputFormat(upperValue, mode) : upperValue;
+    // Only apply uppercase and formatting to text/numeric inputs, 
+    // leave 'select' values as they are defined in formFields.
+    if (fieldType !== 'select') {
+      const upperValue = value.toUpperCase();
+      formatted = mode ? inputFormat(upperValue, mode) : upperValue;
+    }
 
     setForm((prev) => ({
       ...prev,
@@ -199,7 +203,7 @@ export default function MachineForm() {
                   name={field.name}
                   placeholder={""}
                   value={form[field.name] || ""}
-                  onChange={(e) => handleChange(e, field.format)}
+                  onChange={(e) => handleChange(e, field.type, field.format)}
                   disabled={field.name === 'date' || !!recordId}
                 />
               )
