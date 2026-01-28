@@ -13,10 +13,15 @@ export default function MachinesRecord() {
 
     const formatDate = (dateStr) => {
         if (!dateStr) return "N/A";
-        const parts = dateStr.split("-");
+        const parts = dateStr.includes('/') ? dateStr.split("/") : dateStr.split("-");
         if (parts.length === 3) {
-            const [year, month, day] = parts;
-            return `${day}-${month}-${year}`;
+            const [p1, p2, p3] = parts;
+            if (p1.length === 4) {
+                // YYYY-MM-DD to DD/MM/YYYY
+                return `${p3}/${p2}/${p1}`;
+            }
+            // DD-MM-YYYY or DD/MM/YYYY to DD/MM/YYYY
+            return `${p1}/${p2}/${p3}`;
         }
         return dateStr;
     };

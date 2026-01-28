@@ -37,7 +37,7 @@ function AllPart() {
     }
 
     const handleNewPartChange = (e) => {
-        setNewPartName(inputFormat(e.target.value, InputMode.NO_THAI));
+        setNewPartName(inputFormat(e.target.value.toUpperCase(), InputMode.NO_THAI_UPPERCASE));
     }
 
     async function addPart() {
@@ -58,8 +58,6 @@ function AllPart() {
             await setDoc(partRef, {
                 createdAt: new Date()
             });
-
-            alert(`Part "${newPartName}" added successfully!`);
             setNewPartName(""); // Clear input
         } catch (error) {
             console.error("Error adding part:", error);

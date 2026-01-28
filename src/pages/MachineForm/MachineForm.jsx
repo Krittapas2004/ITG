@@ -11,11 +11,28 @@ export default function MachineForm() {
   const { partName, machineId, recordId } = useParams();
   const navigate = useNavigate();
   const decodedPartName = partName ? decodeURIComponent(partName) : "";
-  const today = new Date().toISOString().split('T')[0];
+  const now = new Date();
+  const today = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
   const initialFormState = formFields.reduce((acc, field) => {
     acc[field.name] = field.name === 'date' ? today : "";
     return acc;
   }, {});
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "";
+    const parts = dateStr.includes('/') ? dateStr.split("/") : dateStr.split("-");
+    if (parts.length === 3) {
+      if (parts[0].length === 4) {
+        // YYYY-MM-DD to DD/MM/YYYY
+        const [year, month, day] = parts;
+        return `${day}/${month}/${year}`;
+      }
+      // Already DD-MM-YYYY or DD/MM/YYYY
+      const [day, month, year] = parts;
+      return `${day}/${month}/${year}`;
+    }
+    return dateStr;
+  };
 
   const [form, setForm] = useState(initialFormState);
 
@@ -28,7 +45,6 @@ export default function MachineForm() {
       }));
     }
 
-    // 2. Set the machine ID if it exists in the URL
     if (machineId) {
       setForm(prev => ({
         ...prev,
@@ -62,7 +78,7 @@ export default function MachineForm() {
             setForm(prev => ({
               ...prev,
               ...dataToSet,
-              date: dataToSet.date || "",
+              date: formatDate(dataToSet.date),
               part_name: decodedPartName,
               machine_number: machineId
             }));
@@ -177,14 +193,14 @@ export default function MachineForm() {
               inputElement = (
                 <input
                   autoComplete="off"
-                  type={field.type}
+                  type={field.name === 'date' ? 'text' : field.type}
                   className={field.class}
                   id={field.id}
                   name={field.name}
                   placeholder={""}
                   value={form[field.name] || ""}
                   onChange={(e) => handleChange(e, field.format)}
-                  disabled={!!recordId}
+                  disabled={field.name === 'date' || !!recordId}
                 />
               )
             }
