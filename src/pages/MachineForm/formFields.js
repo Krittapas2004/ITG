@@ -18,7 +18,7 @@ export const formFields = [
     { name: 'press_3rd', id: 'press-3rd-input', type: 'numeric', class: 'number-field' },
     { name: 'press_2nd', id: 'press-2nd-input', type: 'numeric', class: 'number-field' },
     { name: 'press_1st', id: 'press-1st-input', type: 'numeric', class: 'number-field' },
-    { name: 'ret_vel', id: 'ret-vel-input', type: 'select', class: 'select-field', options: ['ON', 'OFF'] },
+    { name: 'ret_vel', id: 'ret-vel-input', type: 'numeric', class: 'number-field' },
     { name: 'zero_set', id: 'zero-set-input', type: 'select', class: 'select-field', options: ['MODE', 'TIME', 'AUTO'] },
     { name: 'mode', id: 'mode-input', type: 'select', class: 'select-field', options: ['MODE0', 'SHARP', 'STAND.', 'SOFT', 'MODE4'] },
     { name: 'flash', id: 'flash-input', type: 'numeric', class: 'number-field' },
